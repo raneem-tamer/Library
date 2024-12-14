@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / temporary files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment directories
+*.venv/
+*.env
+
+# Docker
+*.dockerfile
+
+# Compiled Python files
+*.pyc
+*.pyd
+
+# Distribution packages
+*.egg-info/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Other
+.DS_Store
+.env
