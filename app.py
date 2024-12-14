@@ -8,11 +8,14 @@ app = Flask(__name__)
 # Data file configuration
 DATA_FILE = 'data.json'
 
-# Function to load data from data.json
-def load_books():
-    if not os.path.exists(DATA_FILE):  # Ensure file exists
+# Ensure data file exists
+def initialize_data_file():
+    if not os.path.exists(DATA_FILE):
         with open(DATA_FILE, 'w') as file:
             json.dump([], file)
+
+# Load and save functions
+def load_books():
     with open(DATA_FILE, 'r') as file:
         return json.load(file)
 
@@ -33,7 +36,7 @@ app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
 @app.route('/')
 def index():
-    return "Hello, World!"
+    return "Library Management API is running!"
 
 # API Endpoints
 @app.route('/books', methods=['POST'])
