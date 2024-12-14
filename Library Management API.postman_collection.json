@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "7da7626e-665a-41c4-9831-34fdc810baa4",
+		"name": "Library Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39074647"
+	},
+	"item": [
+		{
+			"name": "Add a New Book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"Title\": \"The Great Gatsby\",\r\n    \"Author\": \"F. Scott Fitzgerald\",\r\n    \"Published Year\": 1925,\r\n    \"ISBN\": \"9780743273565\",\r\n    \"Genre\": \"Fiction\"\r\n  },\r\n  {\r\n    \"Title\": \"To Kill a Mockingbird\",\r\n    \"Author\": \"Harper Lee\",\r\n    \"Published Year\": 1960,\r\n    \"ISBN\": \"9780061120084\",\r\n    \"Genre\": \"Fiction\"\r\n  },\r\n  {\r\n    \"Title\": \"1984\",\r\n    \"Author\": \"George Orwell\",\r\n    \"Published Year\": 1949,\r\n    \"ISBN\": \"9780451524935\",\r\n    \"Genre\": \"Dystopian\"\r\n  },\r\n  {\r\n    \"Title\": \"Pride and Prejudice\",\r\n    \"Author\": \"Jane Austen\",\r\n    \"Published Year\": 1813,\r\n    \"ISBN\": \"9780141439518\",\r\n    \"Genre\": \"Romance\"\r\n  },\r\n  {\r\n    \"Title\": \"The Catcher in the Rye\",\r\n    \"Author\": \"J.D. Salinger\",\r\n    \"Published Year\": 1951,\r\n    \"ISBN\": \"9780316769488\",\r\n    \"Genre\": \"Fiction\"\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/books?Content-Type=application/json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books"
+					],
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search for Books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/books/search?author=F. Scott Fitzgerald",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books",
+						"search"
+					],
+					"query": [
+						{
+							"key": "author",
+							"value": "F. Scott Fitzgerald"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Book by ISBN",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/books/9780743273565",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books",
+						"9780743273565"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Book Details",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Genre\": \"Classic\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/books/9780743273565",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"books",
+						"9780743273565"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
