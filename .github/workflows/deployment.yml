@@ -20,6 +20,7 @@ jobs:
           az login
           az webapp up --name MyLibraryManagementAPI --resource-group Software_Engineering --sku F1 --runtime "PYTHON:3.8"
 
+
       - name: Validate Deployment
         run: |
-          az webapp show --name MyLibraryManagementAPI --resource-group Software_Engineering
+          az webapp show --name LibraryManagementAPI --resource-group Software_Engineering
