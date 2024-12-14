@@ -1,0 +1,26 @@
+name: Deployment to Azure
+
+on:
+  push:
+    branches:
+      - deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Azure CLI
+        uses: azure/setup-azure-cli@v2
+
+      - name: Deploy to Azure
+        run: |
+          az login
+          az webapp up --name MyLibraryManagementAPI --resource-group Software_Engineering --sku F1 --runtime "PYTHON:3.8"
+
+
+      - name: Validate Deployment
+        run: |
+          az webapp show --name LibraryManagementAPI --resource-group Software_Engineering
